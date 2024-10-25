@@ -31,11 +31,11 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3.1.2
+        uses: hashicorp/setup-terraform@v3
         
       - name: Terraform Init
         id: init
-        run: terraform init -backend-config="bucket=${{ env.BUCKET_TF_STATE }}" -backend-config="region=${{ env.AWS_REGION }}"
+        run: terraform init -backend-config="bucket=$BUCKET_TF_STATE"
       
       - name: Terraform format
         id: fmt
